@@ -7,58 +7,66 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# About Laravel Transactions API
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This Laravel project implements functionality related to financial transactions and calculating balances. Below are the details on how to set up the project, migrate and seed the database, and use the provided API functions.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Setup
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. Clone the repository:
+   ---bash
+   git clone https://github.com/Anjana094/transaction_flow.git
+   
+2. Navigate to the project directory:
+   
+   cd transaction_flow
 
-## Learning Laravel
+3. Install dependencies:
+  
+   composer install
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+4. Copy the .env.example file and rename it to .env. Update the database connection details.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. Generate the application key:
 
-## Laravel Sponsors
+   php artisan key:generate
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+6. Migrate the database:
+   
+   php artisan migrate
 
-### Premium Partners
+7. Seed the database:
+   
+   php artisan db:seed   
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+8. Database Structure
+   
+   The transactions table is used to store financial transactions. The initial balance for all users is set to $5.
 
-## Contributing
+9. API Functions
+    1. Calculate User Transaction After Balance
+    
+    Endpoint: /api/calculate-transaction-after-balance
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    2. Calculate User Closing Balance
 
-## Code of Conduct
+    Endpoint: /api/users/{userId}/closing-balance
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    3. Calculate Transaction Amount of last 30 Days/15 Days/Weekend:
 
-## Security Vulnerabilities
+    Endpoint: /api/calculate-metrics
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+10. Project Installation
+    
+    The project is now set up and ready to use. You can run the Laravel development server:
+    
+    php artisan serve
+    
+    Visit http://localhost:8000 to access the API endpoints.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Feel free to explore and integrate these API functions into your application!
+
+
+
+
